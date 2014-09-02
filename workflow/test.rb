@@ -1,13 +1,20 @@
 #test
+require 'rubygems' unless defined? Gem
+# require_relative 'bundle/bundler/setup'
+require 'alfred'
+
 require 'json'
 require 'open-uri'
 
-results = JSON.load(open(URI::encode('http://localhost:8080/autocomplete/' + ARGV[0])))
-resultsJson = JSON.parse(results)
+require 'json'
+require 'open-uri'
 
-titles = resultsJson['groups'].select { | g | g['type'] == 'titles' }
+results = JSON.load(open(URI::encode('http://netflix.atr.io/autocomplete/' + ARGV[0])))
+# resultsJson = JSON.parse(results)
 
-if resultsJson['groups'] == [] || titles.length == 0
+titles = results['groups'].select { | g | g['type'] == 'titles' }
+
+if results['groups'] == [] || titles.length == 0
 	puts "Cannot find titles"
 else
 	movies = titles[0]['items'] || 'nothing found'

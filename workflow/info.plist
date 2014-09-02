@@ -12,7 +12,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>42D05639-3F0F-4760-8214-317167E4173D</string>
+				<string>E97619EE-F34B-4296-A49A-0A8AE661A78E</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -20,16 +20,7 @@
 			</dict>
 		</array>
 		<key>BA17BE41-176A-4E9A-B958-A3F0BEA36829</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>42D05639-3F0F-4760-8214-317167E4173D</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-			</dict>
-		</array>
+		<array/>
 	</dict>
 	<key>createdby</key>
 	<string>Dorian Karter</string>
@@ -44,12 +35,29 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>E97619EE-F34B-4296-A49A-0A8AE661A78E</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
 				<integer>62</integer>
 				<key>keyword</key>
-				<string>netflix movie</string>
+				<string>nf</string>
 				<key>runningsubtext</key>
 				<string>Searching Netflix...</string>
 				<key>script</key>
@@ -67,31 +75,6 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>21557827-8003-42B7-A042-16D4C9278FEC</string>
-			<key>version</key>
-			<integer>0</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<true/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>Ruby Script</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>42D05639-3F0F-4760-8214-317167E4173D</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -132,17 +115,17 @@
 		<key>21557827-8003-42B7-A042-16D4C9278FEC</key>
 		<dict>
 			<key>ypos</key>
-			<real>220</real>
-		</dict>
-		<key>42D05639-3F0F-4760-8214-317167E4173D</key>
-		<dict>
-			<key>ypos</key>
-			<real>220</real>
+			<real>100</real>
 		</dict>
 		<key>BA17BE41-176A-4E9A-B958-A3F0BEA36829</key>
 		<dict>
 			<key>ypos</key>
 			<real>370</real>
+		</dict>
+		<key>E97619EE-F34B-4296-A49A-0A8AE661A78E</key>
+		<dict>
+			<key>ypos</key>
+			<real>30</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>

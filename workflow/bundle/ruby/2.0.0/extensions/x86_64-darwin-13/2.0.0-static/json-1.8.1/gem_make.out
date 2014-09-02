@@ -1,0 +1,13 @@
+/Users/dkarter/.rvm/rubies/ruby-2.0.0-p481/bin/ruby extconf.rb 
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling parser.c
+linking shared-object json/ext/parser.bundle
+ld: warning: directory not found for option '-L/Users/travis/.sm/pkg/active/lib'
+
+make "DESTDIR=" install
+/usr/bin/install -m 0755 parser.bundle ./.gem.20140902-35542-1ehwj6y/json/ext
+installing default parser libraries

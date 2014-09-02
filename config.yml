@@ -2,7 +2,7 @@
 # path is the relative path to the workflow in the project root
 ---
 path: workflow
-domain: me.dkarter
+domain: atr.io
 id: alfred2-netflix-search
 # If you are using Alfred's advanced Dropbox sync, indicate the path shown in
 # Alfred Preferences > Advanced > Syncing:

@@ -3,6 +3,7 @@ GEM
   specs:
     alfred-workflow (1.8.0)
       plist (>= 3.1.0)
+    json (1.8.1)
     plist (3.1.0)
 
 PLATFORMS
@@ -10,4 +11,5 @@ PLATFORMS
 
 DEPENDENCIES
   alfred-workflow
+  json
   plist

@@ -1,9 +1,12 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
+($LOAD_PATH << File.expand_path("..", __FILE__)).uniq!
 require 'rubygems' unless defined? Gem # rubygems is only needed in 1.8
-require "bundle/bundler/setup"
-require "alfred"
+
+require_relative 'bundle/bundler/setup'
+require 'alfred'
+
 require 'json'
 require 'open-uri'
 
@@ -13,12 +16,11 @@ Alfred.with_friendly_error do |alfred|
   fb = alfred.feedback
 
   
-  results = JSON.load(open(URI::encode('http://localhost:8080/autocomplete/' + ARGV[0])))
-  resultsJson = JSON.parse(results)
+  results = JSON.load(open(URI::encode('http://netflix.atr.io/autocomplete/' + ARGV[0])))
 
-  titles = resultsJson['groups'].select { | g | g['type'] == 'titles' }
+  titles = results['groups'].select { | g | g['type'] == 'titles' }
 
-  if resultsJson['groups'] == [] || titles.length == 0
+  if results['groups'] == [] || titles.length == 0
     puts "Cannot find titles"
   else
     movies = titles[0]['items'] || 'nothing found'
@@ -28,10 +30,10 @@ Alfred.with_friendly_error do |alfred|
         uid:      "#{movie['id']}",
         title:    "#{movie['title']}",
         subtitle: "http://www.netflix.com/WiPlayer?movieid=#{movie['id']}",
-        arg:      "" ,
+        arg:      "http://www.netflix.com/WiPlayer?movieid=#{movie['id']}" ,
         valid:    "yes",
       })
-      
+      #more info link http://www.netflix.com/WiMovie/80002621?trkid=13462050
     end
   end
 
