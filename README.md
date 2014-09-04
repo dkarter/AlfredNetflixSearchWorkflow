@@ -9,9 +9,9 @@
 
 **License:** MIT
 
-**Disclaimer:** I am not connected and or affiliated with Netflix, this code was written purely for educational purposes and with no other intent, warranty or purpose. Use at your own risk and responsiblity.
+**Disclaimer:** I am not connected and or affiliated with Netflix, this code was written purely for educational purposes and with no other intent, warranty or purpose. Use at your own risk and responsibility.
  
-© Dorian Karter 2014
+ 
 
 ## Installation
 
