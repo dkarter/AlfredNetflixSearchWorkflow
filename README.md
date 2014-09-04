@@ -17,6 +17,8 @@
 
 Please use Packal to download the workflow - it will provide AutoUpdate functionality.
 
+http://www.packal.org/workflow/netflix-search
+
 ## Usage
 
 ### Searching for a movie/tv-show
