@@ -21,6 +21,8 @@ Please use Packal to download the workflow - it will provide AutoUpdate function
 
 ### Searching for a movie/tv-show
 
+![](screenshots/Screen1.png "")
+
 nf [name of movie]
 
 - Netflix Search Workflow will automatically suggest matching titles.
@@ -29,6 +31,8 @@ nf [name of movie]
   - if the title is a TV show it will allow you to select the episode you would like to watch on that page
 
 ### Searching for an actor/director etc
+
+![](screenshots/Screen2.png "")
 
 nf ppl [name of person]
 
