@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>me.dkarter.alfred2-netflix-search</string>
+	<string>atr.io.alfred2-netflix-search</string>
 	<key>category</key>
 	<string>Internet</string>
 	<key>connections</key>
