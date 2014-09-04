@@ -13,3 +13,24 @@
  
 © Dorian Karter 2014
 
+## Installation
+
+Please use Packal to download the workflow - it will provide AutoUpdate functionality.
+
+## Usage
+
+### Searching for a movie/tv-show
+
+nf [name of movie]
+
+- Netflix Search Workflow will automatically suggest matching titles.
+- Pressing enter (⏎) will open the Netflix player in your browser and start playing the movie
+- Pressing Command (⌘) and Enter (⏎) will open the movie page which includes synopsis, cover, reviews
+  - if the title is a TV show it will allow you to select the episode you would like to watch on that page
+
+### Searching for an actor/director etc
+
+nf ppl [name of person]
+
+- Netflix Search Workflow will automatically suggest matching names based on roles in movies in Netflix.
+- Press enter (⏎) to open a page with a list of movies by/with that person
