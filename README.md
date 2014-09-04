@@ -29,6 +29,7 @@ nf [name of movie]
 
 - Netflix Search Workflow will automatically suggest matching titles.
 - Pressing enter (⏎) will open the Netflix player in your browser and start playing the movie
+ - If you are opening a previously watched TV show/movie it will continue where you stopped last
 - Pressing Command (⌘) and Enter (⏎) will open the movie page which includes synopsis, cover, reviews
   - if the title is a TV show it will allow you to select the episode you would like to watch on that page
 
