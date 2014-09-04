@@ -1,63 +1,49 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 
-($LOAD_PATH << File.expand_path("..", __FILE__)).uniq!
-require 'rubygems' unless defined? Gem # rubygems is only needed in 1.8
+# ===================================================
+# Netflix Alfred Workflow
+# Developed by: Dorian Karter
+# Website: https://github.com/dkarter/AlfredNetflixSearchWorkflow
+# Netflix API (unofficial): https://github.com/dkarter/NetflixScraperAPI
+# License: MIT
+# Disclaimer: I am not connected and or affiliated with Netflix,
+# this code was written purely for educational purposes and with
+# no other intent, warranty or purpose. Use at your own risk and responsiblity.
+# ===================================================
 
-require_relative 'bundle/bundler/setup'
-require 'alfred'
+($LOAD_PATH << File.expand_path('..', __FILE__)).uniq!
+require 'rubygems' unless defined? Gem # rubygems is only needed in 1.8
 
 require 'json'
 require 'open-uri'
 
+netflix_api = 'http://netflix.atr.io'
 
+results = JSON.load(open(URI.encode("#{netflix_api}/autocomplete/#{ARGV[1]}")))
 
-Alfred.with_friendly_error do |alfred|
-  fb = alfred.feedback
+search_type = ARGV[0]
+title_key = search_type == 'titles' ? 'title' : 'name'
+group = results['groups'].select { | g | g['type'] == search_type }
 
-  
-  results = JSON.load(open(URI::encode('http://netflix.atr.io/autocomplete/' + ARGV[0])))
+output = []
+output << '<items>'
 
-  titles = results['groups'].select { | g | g['type'] == 'titles' }
+unless results['groups'] == [] || group.length == 0
+  items = group[0]['items'] || []
+  items.each do |item|
 
-  if results['groups'] == [] || titles.length == 0
-    puts "Cannot find titles"
-  else
-    movies = titles[0]['items'] || 'nothing found'
-    movies.each do |movie|
-      movie['title'] = "#{movie['title']} #{movie['disambiguation']}" if movie.has_key? 'disambiguation'
-      fb.add_item({
-        uid:      "#{movie['id']}",
-        title:    "#{movie['title']}",
-        subtitle: "http://www.netflix.com/WiPlayer?movieid=#{movie['id']}",
-        arg:      "http://www.netflix.com/WiPlayer?movieid=#{movie['id']}" ,
-        valid:    "yes",
-      })
-      #more info link http://www.netflix.com/WiMovie/80002621?trkid=13462050
-    end
+    item['title'] = "#{item['title']} #{item['disambiguation']}" if item.key? 'disambiguation'
+
+    output << "  <item arg='#{item['id']}' uid='#{item['id']}' valid='yes'>"
+    output << "    <title>#{item[title_key]}</title>"
+    output << '    <subtitle>Press enter to open on Netflix</subtitle>'
+    output << '    <icon>icon.png</icon>'
+    output << '  </item>'
+
   end
-
-  
-      
-  
-  
-  # # add an feedback to test rescue feedback
-  # fb.add_item({
-  #   :uid          => ""                     ,
-  #   :title        => "Rescue Feedback Test" ,
-  #   :subtitle     => "rescue feedback item" ,
-  #   :arg          => ""                     ,
-  #   :autocomplete => "failed"               ,
-  #   :valid        => "no"                   ,
-  # })
-
-  if ARGV[0].eql? "failed"
-    alfred.with_rescue_feedback = true
-    raise Alfred::NoBundleIDError, "Wrong Bundle ID Test!"
-  end
-
-  puts fb.to_xml(ARGV)
 end
 
+output << '</items>'
 
-
+puts output.join("\n")
