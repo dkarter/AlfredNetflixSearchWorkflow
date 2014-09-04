@@ -9,13 +9,15 @@
 
 **License:** MIT
 
-**Disclaimer:** I am not connected and or affiliated with Netflix, this code was written purely for educational purposes and with no other intent, warranty or purpose. Use at your own risk and responsiblity.
+**Disclaimer:** I am not connected and or affiliated with Netflix, this code was written purely for educational purposes and with no other intent, warranty or purpose. Use at your own risk and responsibility.
  
-© Dorian Karter 2014
+ 
 
 ## Installation
 
 Please use Packal to download the workflow - it will provide AutoUpdate functionality.
+
+http://www.packal.org/workflow/netflix-search
 
 ## Usage
 
@@ -27,6 +29,7 @@ nf [name of movie]
 
 - Netflix Search Workflow will automatically suggest matching titles.
 - Pressing enter (⏎) will open the Netflix player in your browser and start playing the movie
+ - If you are opening a previously watched TV show/movie it will continue where you stopped last
 - Pressing Command (⌘) and Enter (⏎) will open the movie page which includes synopsis, cover, reviews
   - if the title is a TV show it will allow you to select the episode you would like to watch on that page
 
