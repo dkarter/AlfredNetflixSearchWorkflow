@@ -18,27 +18,39 @@ require 'rubygems' unless defined? Gem # rubygems is only needed in 1.8
 require 'json'
 require 'open-uri'
 
-netflix_api = 'http://netflix.atr.io'
+def save_icon(url, name)
+  filename = File.expand_path("#{Dir.pwd}/tmp/#{name}.jpg", __FILE__)
+  unless File.exist?(filename)
+    File.open(filename, 'wb') do |fo|
+      fo.write open(url).read
+    end
+  end
+  filename
+end
 
-results = JSON.load(open(URI.encode("#{netflix_api}/autocomplete/#{ARGV[1]}")))
+netflix_api = 'http://netflix.atr.io'
+url = "#{netflix_api}/autocomplete/?query=#{ARGV[1]}&country=#{ARGV[2]}"
+results = JSON.load(open(URI.encode(url)))
 
 search_type = ARGV[0]
-title_key = search_type == 'titles' ? 'title' : 'name'
-group = results['groups'].select { | g | g['type'] == search_type }
+title_search = search_type == 'titles'
+title_key = title_search ? 'title' : 'safename'
+
+group = results[title_search ? 'galleryVideos' : 'railPeople']
 
 output = []
 output << '<items>'
 
-unless results['groups'] == [] || group.length == 0
-  items = group[0]['items'] || []
+if group && group.length > 0
+  items = group['items'] || []
   items.each do |item|
-
+    item['icon'] = (item.key? ('boxart')) ? save_icon(item['boxart'], item['id']) : 'icon.png'
     item['title'] = "#{item['title']} #{item['disambiguation']}" if item.key? 'disambiguation'
 
     output << "  <item arg='#{item['id']}' uid='#{item['id']}' valid='yes'>"
-    output << "    <title>#{item[title_key]}</title>"
+    output << "    <title><![CDATA[#{item[title_key]}]]></title>"
     output << '    <subtitle>Press enter to open on Netflix</subtitle>'
-    output << '    <icon>icon.png</icon>'
+    output << "    <icon>#{item['icon']}</icon>"
     output << '  </item>'
 
   end

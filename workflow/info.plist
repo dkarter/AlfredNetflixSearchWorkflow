@@ -27,6 +27,27 @@
 				<string>Hold the ⌘ key and press ⏎ to open movie details</string>
 			</dict>
 		</array>
+		<key>ABB58636-27E4-43CF-A876-32867FEA7E16</key>
+		<array/>
+		<key>EBFFA01B-5F71-456D-B333-D223F14E5AC7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>ABB58636-27E4-43CF-A876-32867FEA7E16</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>8C26DB33-B926-4FE8-A3B6-349C996C85AD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
 		<key>EE6441D4-59AD-4694-A5DD-3A524A713B30</key>
 		<array>
 			<dict>
@@ -46,7 +67,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>Netflix Search</string>
+	<string>Netflix Search v1.5</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -78,7 +99,7 @@
 				<key>runningsubtext</key>
 				<string>Searching Netflix...</string>
 				<key>script</key>
-				<string>/usr/bin/ruby ./main.rb titles "{query}"</string>
+				<string>/usr/bin/ruby ./main.rb titles "{query}" US</string>
 				<key>subtext</key>
 				<string>Example 'nf star trek'</string>
 				<key>title</key>
@@ -141,7 +162,7 @@
 				<key>runningsubtext</key>
 				<string>Searching Netflix...</string>
 				<key>script</key>
-				<string>/usr/bin/ruby ./main.rb people "{query}"</string>
+				<string>/usr/bin/ruby ./main.rb people "{query}" US</string>
 				<key>subtext</key>
 				<string>Example 'nf ppl Neil DeGrasse Tyson'</string>
 				<key>title</key>
@@ -155,6 +176,75 @@
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>EE6441D4-59AD-4694-A5DD-3A524A713B30</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>127</integer>
+				<key>script</key>
+				<string>/usr/bin/ruby ./cache.rb {query}</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>ABB58636-27E4-43CF-A876-32867FEA7E16</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>62</integer>
+				<key>keyword</key>
+				<string>nfcache</string>
+				<key>runningsubtext</key>
+				<string>Erasing Netflix Cache. Please Wait.</string>
+				<key>script</key>
+				<string>/usr/bin/ruby ./cache.rb menu</string>
+				<key>title</key>
+				<string>Clean Netflix cover art cache</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>EBFFA01B-5F71-456D-B333-D223F14E5AC7</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>This may take a few seconds.</string>
+				<key>title</key>
+				<string>Cleanning Netflix cover art cache</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>8C26DB33-B926-4FE8-A3B6-349C996C85AD</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -173,6 +263,16 @@
 			<key>ypos</key>
 			<real>270</real>
 		</dict>
+		<key>8C26DB33-B926-4FE8-A3B6-349C996C85AD</key>
+		<dict>
+			<key>ypos</key>
+			<real>510</real>
+		</dict>
+		<key>ABB58636-27E4-43CF-A876-32867FEA7E16</key>
+		<dict>
+			<key>ypos</key>
+			<real>430</real>
+		</dict>
 		<key>C3C23560-7C9F-4FA4-A1DA-E70AD1187F4D</key>
 		<dict>
 			<key>ypos</key>
@@ -182,6 +282,11 @@
 		<dict>
 			<key>ypos</key>
 			<real>30</real>
+		</dict>
+		<key>EBFFA01B-5F71-456D-B333-D223F14E5AC7</key>
+		<dict>
+			<key>ypos</key>
+			<real>510</real>
 		</dict>
 		<key>EE6441D4-59AD-4694-A5DD-3A524A713B30</key>
 		<dict>

@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"out",
+				"output"
+			],
+			[
+				"net",
+				"netflix_api"
+			],
+			[
+				"ruby",
+				"ruby_engine"
+			],
+			[
 				"call",
 				"callback"
 			],
@@ -502,18 +514,6 @@
 			[
 				"activa",
 				"activate"
-			],
-			[
-				"ta",
-				"target"
-			],
-			[
-				"a",
-				"attr"
-			],
-			[
-				"atta",
-				"attack_action"
 			]
 		]
 	},
@@ -523,31 +523,47 @@
 	"build_system": "Packages/User/chrome.sublime-build",
 	"command_palette":
 	{
-		"height": 206.0,
+		"height": 400.0,
 		"selected_items":
 		[
 			[
-				"gitig",
-				"Set Syntax: Git Ignore"
+				"new",
+				"ANF: New File"
+			],
+			[
+				"conver",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"lint",
+				"SublimeLinter: Lint This View"
 			],
 			[
 				"insta",
 				"Package Control: Install Package"
 			],
 			[
-				"rena",
-				"ANF: Rename File"
+				"ref",
+				"Project: Refresh Folders"
 			],
 			[
 				"dele",
 				"ANF: Delete File"
 			],
 			[
-				"",
-				"ANF: New File"
+				"xml",
+				"Set Syntax: XML"
 			],
 			[
-				"new",
+				"gitig",
+				"Set Syntax: Git Ignore"
+			],
+			[
+				"rena",
+				"ANF: Rename File"
+			],
+			[
+				"",
 				"ANF: New File"
 			],
 			[
@@ -683,10 +699,6 @@
 				"Google Spell Check"
 			],
 			[
-				"lint",
-				"SublimeLinter: Lint This View"
-			],
-			[
 				"html",
 				"Set Syntax: HTML"
 			],
@@ -744,10 +756,18 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/dkarter/Dropbox/Developer/alfrednetflixsearchworkflow"
+		"/Users/dkarter/Dropbox/Developer/alfrednetflixsearchworkflow",
+		"/Users/dkarter/Dropbox/Developer/alfrednetflixsearchworkflow/workflow"
 	],
 	"file_history":
 	[
+		"/Users/dkarter/Dropbox/Developer/alfrednetflixsearchworkflow/.gitignore",
+		"/Users/dkarter/Dropbox/Developer/alfrednetflixsearchworkflow/workflow/Gemfile",
+		"/Users/dkarter/Dropbox/Developer/alfrednetflixsearchworkflow/workflow/main.rb",
+		"/Users/dkarter/Dropbox/Developer/alfrednetflixsearchworkflow/Rakefile",
+		"/Users/dkarter/Dropbox/Developer/alfrednetflixsearchworkflow/test_code.sh",
+		"/Users/dkarter/Dropbox/Developer/alfrednetflixsearchworkflow/README.md",
+		"/Users/dkarter/Dropbox/Developer/alfrednetflixsearchworkflow/workflow/bundle/bundler/setup.rb",
 		"/Users/dkarter/.zshrc",
 		"/Users/dkarter/Dropbox/Developer/alfrednetflixsearchworkflow/workflow/test.rb",
 		"/Users/dkarter/Dropbox/Developer/alfrednetflixsearchworkflow/workflow/bundle/ruby/2.0.0/gems/plist-3.1.0/test/assets/test_empty_key.plist",
@@ -868,18 +888,11 @@
 		"/Users/dkarter/Dropbox/Developer/Vippo/config/database.yml",
 		"/Users/dkarter/Dropbox/Developer/Vippo/test/models/dashboard_test.rb",
 		"/Users/dkarter/Dropbox/Developer/Vippo/app/models/dashboard.rb",
-		"/Users/dkarter/Dropbox/Developer/Vippo/config/environments/test.rb",
-		"/Users/dkarter/Dropbox/Developer/RealDealPoliticsPrototype/app/scripts/demo/morris-demo.js",
-		"/Users/dkarter/Dropbox/Developer/RealDealPoliticsPrototype/app/bower_components/sass-bootstrap/dist/css/bootstrap.css",
-		"/Users/dkarter/Dropbox/Developer/RealDealPoliticsMock/img/avatar1.png",
-		"/Users/dkarter/Dropbox/Developer/RealDealPoliticsMock/img/avatar2.png",
-		"/Users/dkarter/Dropbox/Developer/RealDealPoliticsMock/img/avatar4.png",
-		"/Users/dkarter/Dropbox/Developer/RealDealPoliticsMock/img/avatar3.png",
-		"/Users/dkarter/Dropbox/Developer/RealDealPoliticsMock/img/logo-square.png"
+		"/Users/dkarter/Dropbox/Developer/Vippo/config/environments/test.rb"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -896,6 +909,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\"",
+			"icon",
+			"subtitle",
+			"out",
+			"item",
+			"test",
+			"#{base_url}",
+			"movie",
+			"titles",
+			"movie",
 			"\"",
 			"resultsJson",
 			"cb",
@@ -1013,17 +1036,7 @@
 			".page-header",
 			"charts",
 			"img/",
-			"/images/",
-			"images/",
-			"img/",
-			"\"",
-			"400",
-			"Raphael",
-			"nav",
-			"min-height: 50",
-			"min-height",
-			"min-he",
-			".nav"
+			"/images/"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1105,6 +1118,10 @@
 		"selected_items":
 		[
 			[
+				"",
+				"workflow/main.rb"
+			],
+			[
 				"tes",
 				"workflow/test.rb"
 			],
@@ -1167,10 +1184,6 @@
 			[
 				"acc",
 				"spec/lib/account_spec.rb"
-			],
-			[
-				"",
-				"spec/lib/command_interpreter_spec.rb"
 			],
 			[
 				"comm",
