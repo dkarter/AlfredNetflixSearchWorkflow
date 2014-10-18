@@ -1,4 +1,4 @@
-
+![Build Status](https://travis-ci.org/dkarter/AlfredNetflixSearchWorkflow.svg?branch=master)
 # Netflix Alfred Workflow
  
 
