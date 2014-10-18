@@ -5,65 +5,67 @@ require 'plist'
 
 config_file = 'config.yml'
 
-workflow_home=File.expand_path("~/Library/Application Support/Alfred 2/Alfred.alfredpreferences/workflows")
+workflow_home = File.expand_path('~/Library/Application Support/Alfred 2/Alfred.alfredpreferences/workflows')
 
-$config = YAML.load_file(config_file)
-$config['bundleid'] = "#{$config["domain"]}.#{$config["id"]}"
-$config['plist'] = File.join($config['path'], 'info.plist')
-$config['workflow_dbx'] = File.join(File.expand_path($config['dropbox']), '/Alfred.alfredpreferences/workflows')
+config = YAML.load_file(config_file)
+config['bundleid'] = "#{config['domain']}.#{config['id']}"
+config['plist'] = File.join(config['path'], 'info.plist')
+config['workflow_dbx'] = File.join(File.expand_path(config['dropbox']), '/Alfred.alfredpreferences/workflows')
 
 # import sub-rakefiles
 FileList['*/Rakefile'].each { |file| import file }
 
 task :default do
-  puts 'no default task'
+  sh %(reek -V workflow/main.rb && rubocop) do |ok, res|
+    puts res unless ok
+  end
 end
 
 task :config do
 
-  info = Plist.parse_xml($config['plist'])
-  unless info['bundleid'].eql?($config['bundleid'])
-    info['bundleid'] = $config['bundleid']
-    File.open($config['plist'], 'wb') { |file| file.write(info.to_plist) }
+  info = Plist.parse_xml(config['plist'])
+  unless info['bundleid'].eql?(config['bundleid'])
+    info['bundleid'] = config['bundleid']
+    File.open(config['plist'], 'wb') { |file| file.write(info.to_plist) }
   end
 end
 
 task chdir: [:config] do
-  chdir $config['path']
+  chdir config['path']
 end
 
 desc 'Install Gems'
 task 'bundle:install' => [:chdir] do
-  sh %Q{bundle install --standalone --clean} do |ok, res|    
-      puts "fail to install gems (status = #{res.exitstatus})" unless ok
+  sh %(bundle install --standalone --clean) do |ok, res|
+    puts "fail to install gems (status = #{res.exitstatus})" unless ok
   end
 end
 
 desc 'Update Gems'
 task 'bundle:update' => [:chdir] do
-  sh %q{bundle update && bundle install --standalone --clean} do |ok, res|
-      puts "fail to update gems (status = #{res.exitstatus})" unless ok
+  sh %(bundle update && bundle install --standalone --clean) do |ok, res|
+    puts "fail to update gems (status = #{res.exitstatus})" unless ok
   end
 end
 
 desc 'Install to Alfred'
 task install: [:config] do
-  ln_sf File.expand_path($config['path']), File.join(workflow_home, $config['bundleid'])
+  ln_sf File.expand_path(config['path']), File.join(workflow_home, config['bundleid'])
 end
 
 desc 'Unlink from Alfred'
 task uninstall: [:config] do
-  rm File.join(workflow_home, $config['bundleid'])
+  rm File.join(workflow_home, config['bundleid'])
 end
 
 desc 'Install to Dropbox'
 task dbxinstall: [:config] do
-  ln_sf File.expand_path($config['path']), File.join($config['workflow_dbx'], $config['bundleid'])
+  ln_sf File.expand_path(config['path']), File.join(config['workflow_dbx'], config['bundleid'])
 end
 
 desc 'Unlink from Dropbox'
 task dbxuninstall: [:config] do
-  rm File.join($config['workflow_dbx'], $config['bundleid'])
+  rm File.join(config['workflow_dbx'], config['bundleid'])
 end
 
 desc 'Clean up all the extras'
@@ -72,6 +74,6 @@ end
 
 desc 'Remove any generated file'
 task clobber: [:clean] do
-  rmtree File.join($config['path'], '.bundle')
-  rmtree File.join($config['path'], 'bundle')
+  rmtree File.join(config['path'], '.bundle')
+  rmtree File.join(config['path'], 'bundle')
 end

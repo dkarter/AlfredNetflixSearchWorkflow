@@ -44,7 +44,7 @@ output << '<items>'
 if group && group.length > 0
   items = group['items'] || []
   items.each do |item|
-    item['icon'] = (item.key? ('boxart')) ? save_icon(item['boxart'], item['id']) : 'icon.png'
+    item['icon'] = item.key?('boxart') ? save_icon(item['boxart'], item['id']) : 'icon.png'
     item['title'] = "#{item['title']} #{item['disambiguation']}" if item.key? 'disambiguation'
 
     output << "  <item arg='#{item['id']}' uid='#{item['id']}' valid='yes'>"
