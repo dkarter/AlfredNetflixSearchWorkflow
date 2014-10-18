@@ -15,6 +15,10 @@ $config['workflow_dbx'] = File.join(File.expand_path($config['dropbox']), '/Alfr
 # import sub-rakefiles
 FileList['*/Rakefile'].each { |file| import file }
 
+task :default do
+  puts 'no default task'
+end
+
 task :config do
 
   info = Plist.parse_xml($config['plist'])
