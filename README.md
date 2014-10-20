@@ -1,4 +1,4 @@
-![Build Status](https://travis-ci.org/dkarter/AlfredNetflixSearchWorkflow.svg?branch=master)
+![Build Status](https://travis-ci.org/dkarter/AlfredNetflixSearchWorkflow.svg?branch=master) [![endorse](https://api.coderwall.com/dorianx/endorsecount.png)](https://coderwall.com/dorianx)
 # Netflix Alfred Workflow
  
 
